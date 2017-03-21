@@ -1,2 +1,5 @@
-./vendor
-./idea
+vendor/
+.idea/
+composer.lock
+src/AppBundle/
+src/.htaccess

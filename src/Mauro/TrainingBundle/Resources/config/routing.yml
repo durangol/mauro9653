@@ -1,0 +1,3 @@
+mauro_training_homepage:
+    path:     /
+    defaults: { _controller: MauroTrainingBundle:Mauro:index }

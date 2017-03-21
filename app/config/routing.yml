@@ -1,0 +1,7 @@
+mauro_training:
+    resource: "@MauroTrainingBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
