@@ -17,12 +17,20 @@ class PerformanceManager extends AbstractManager
      */
     protected $performanceFactory;
 
+    /**
+     * PerformanceManager constructor.
+     * @param \PDO $db
+     * @param PerformanceFactory $performanceFactory
+     */
     public function __construct(\PDO $db, PerformanceFactory $performanceFactory)
     {
         parent::__construct($db);
         $this->performanceFactory = $performanceFactory;
     }
 
+    /**
+     * @return array
+     */
     public function fetchPerformance()
     {
         $statement = $this->db->prepare('SELECT * FROM workout_log');
