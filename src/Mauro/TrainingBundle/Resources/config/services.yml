@@ -8,7 +8,7 @@ services:
 
     performance_manager:
         class: Mauro\TrainingBundle\Entity\Performance\PerformanceManager
-        arguments: [@db, @performance_factory]
+        arguments: ["@db", "@performance_factory"]
 #    mauro_training.example:
 #        class: Mauro\TrainingBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -93,9 +93,9 @@
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
     <parameter key="database_host">127.0.0.1</parameter>
     <parameter key="database_port">null</parameter>
-    <parameter key="database_name">cfhk_perfomance</parameter>
+    <parameter key="database_name">cfhk_performance</parameter>
     <parameter key="database_user">root</parameter>
-    <parameter key="database_password">passwords</parameter>
+    <parameter key="database_password">password</parameter>
     <parameter key="mailer_transport">smtp</parameter>
     <parameter key="mailer_host">127.0.0.1</parameter>
     <parameter key="mailer_user">null</parameter>
@@ -401,6 +401,16 @@
     </parameter>
   </parameters>
   <services>
+    <service id="db" class="PDO">
+      <argument>mysql:dbname=cfhk_performance</argument>
+      <argument>root</argument>
+      <argument>password</argument>
+    </service>
+    <service id="performance_factory" class="Mauro\TrainingBundle\Entity\Performance\PerformanceFactory"/>
+    <service id="performance_manager" class="Mauro\TrainingBundle\Entity\Performance\PerformanceManager">
+      <argument type="service" id="db"/>
+      <argument type="service" id="performance_factory"/>
+    </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
@@ -461,7 +471,7 @@
                 <tag name="cache.pool" clearer="cache.default_clearer"/>
                 <argument>achmabxViN</argument>
                 <argument>0</argument>
-                <argument>1AZ3F7vKyH5pJU7Hsuc8Pn</argument>
+                <argument>t3jyYuAdS0rKaGZvXQPW2z</argument>
                 <argument>/home/maxpowers/Public/mauro9653/var/cache/dev/pools</argument>
                 <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                 <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -644,7 +654,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>AQgfHJArbP</argument>
       <argument>0</argument>
-      <argument>1AZ3F7vKyH5pJU7Hsuc8Pn</argument>
+      <argument>t3jyYuAdS0rKaGZvXQPW2z</argument>
       <argument>/home/maxpowers/Public/mauro9653/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -654,7 +664,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>dhyyddQnWO</argument>
       <argument>0</argument>
-      <argument>1AZ3F7vKyH5pJU7Hsuc8Pn</argument>
+      <argument>t3jyYuAdS0rKaGZvXQPW2z</argument>
       <argument>/home/maxpowers/Public/mauro9653/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -1647,7 +1657,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>58f2caa91669b2.31781395</argument>
+            <argument>58f36c84b53752.52982195</argument>
           </service>
         </argument>
       </argument>
@@ -1795,7 +1805,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>58f2caa91669b2.31781395</argument>
+            <argument>58f36c84b53752.52982195</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2165,9 +2175,9 @@
         <argument key="driver">pdo_mysql</argument>
         <argument key="host">127.0.0.1</argument>
         <argument key="port">null</argument>
-        <argument key="dbname">cfhk_perfomance</argument>
+        <argument key="dbname">cfhk_performance</argument>
         <argument key="user">root</argument>
-        <argument key="password">passwords</argument>
+        <argument key="password">password</argument>
         <argument key="charset">UTF8</argument>
         <argument key="driverOptions" type="collection"/>
         <argument key="defaultTableOptions" type="collection"/>
@@ -2254,7 +2264,9 @@
       <argument type="service">
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
-            <argument type="collection"/>
+            <argument type="collection">
+              <argument key="MauroTrainingBundle">Mauro\TrainingBundle\Entity</argument>
+            </argument>
           </call>
           <call method="setMetadataCacheImpl">
             <argument type="service" id="doctrine_cache.providers.doctrine.orm.default_metadata_cache"/>
@@ -2267,7 +2279,19 @@
           </call>
           <call method="setMetadataDriverImpl">
             <argument type="service">
-              <service class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false"/>
+              <service class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/home/maxpowers/Public/mauro9653/src/Mauro/TrainingBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>Mauro\TrainingBundle\Entity</argument>
+                </call>
+              </service>
             </argument>
           </call>
           <call method="setProxyDir">

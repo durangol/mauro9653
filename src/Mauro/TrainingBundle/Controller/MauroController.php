@@ -9,8 +9,8 @@ class MauroController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('MauroTrainingBundle::layout.html.twig',
-                ['performance' => $this->get('performance_manager')->fetchPerformance()]
+        return $this->render('MauroTrainingBundle:performance:index.html.twig',
+                ['performances' => $this->get('performance_manager')->fetchPerformance()]
             );
     }
 }
