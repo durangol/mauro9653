@@ -3,3 +3,4 @@ vendor/
 composer.lock
 src/AppBundle/
 src/.htaccess
+var/cache

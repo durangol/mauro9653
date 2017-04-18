@@ -1,5 +1,29 @@
 {% extends '@MauroTraining/layout.html.twig' %}
 
 {% block content %}
-    {{ dump(performances) }}
+    <table class="table table-hover table-border table_results">
+        <thead>
+            <tr>
+                <th>Date of Workout</th>
+                <th>Result</th>
+                <th>workout Description</th>
+                <th>Date of Workout</th>
+                <th>Measurement_units</th>
+                <th>performance</th>
+            </tr>
+            <th>
+
+            </th>
+
+        </thead>
+        <tbody>
+            <tr>
+            {% for performance in performances %}
+                <li>{{ performance.date_of_workout }}</li>
+                <li>{{ performance.result }}</li>
+                <li>{{ performance.workout_description }}</li>
+                <li>{{ performance.measurement_units }}</li>
+                <li>{{ performance.performance_type }}</li></table>
+            {% endfor %}
+        </tbod  y>
 {% endblock %}
