@@ -9,7 +9,8 @@
                 <th>Result</th>
                 <th>workout Description</th>
                 <th>weight</th>
-                <th>Measurement_units</th>
+                <th>Measurement Units</th>
+                <th>Personal Record</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@
                 <td>{{ performance.workout_description }}</td>
                 <td>{{ performance.weight }}</td>
                 <td>{{ performance.measurement_units }}</td>
+                <td>{{ performance.pr }}</td>
             </tr>
         {% endfor %}
         </tbody>
