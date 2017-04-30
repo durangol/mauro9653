@@ -1,0 +1,7 @@
+{% extends '@MauroTraining/layout.html.twig' %}
+
+{% block content %}
+    {% autoescape %}
+        {{ wods|raw }}
+    {% endautoescape %}
+{% endblock %}
