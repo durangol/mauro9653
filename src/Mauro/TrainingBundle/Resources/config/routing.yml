@@ -1,3 +1,6 @@
 mauro_training_homepage:
     path:     /
     defaults: { _controller: MauroTrainingBundle:Mauro:index }
+cfhk:
+    path:     /cfhk
+    defaults: { _controller: MauroTrainingBundle:CFHK:index }
