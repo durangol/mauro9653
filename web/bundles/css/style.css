@@ -1,0 +1,28 @@
+.navigation {
+    background-color: #483D8B;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.navigation_list{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.navigation_list>li {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.navigation_link {
+    display: block;
+    padding: 0.56em 1.56em;
+    margin: 0;
+    color: #7B68EE;
+    text-decoration: none;
+    background-color: transparent;
+    text-shadow: 1px 1px 0 #000;
+}

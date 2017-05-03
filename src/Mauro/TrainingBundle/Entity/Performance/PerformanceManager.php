@@ -33,7 +33,7 @@ class PerformanceManager extends AbstractManager
      */
     public function fetchPerformance()
     {
-        $statement = $this->db->prepare('SELECT * FROM workout_log limit 30');
+        $statement = $this->db->prepare('SELECT * FROM workout_log limit 5 ');
         $statement->execute();
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
