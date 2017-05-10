@@ -30,7 +30,8 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "twig/twig": "^1.0||^2.0",
         "symfony/dom-crawler": "v3.2.7",
-        "symfony/css-selector": "v3.2.7"
+        "symfony/css-selector": "v3.2.7",
+        "twitter/bootstrap": "v3.3.7"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
