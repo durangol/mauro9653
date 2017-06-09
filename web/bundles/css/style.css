@@ -3,6 +3,7 @@ html, body {
     height: 100%;
     background-size: cover;
 }
+
 /*
 #logo img {
     padding-top: 20px;
@@ -11,8 +12,48 @@ html, body {
 
 #intro p {
     padding-top: 100px;
-    color: #292b2c;
+    color: darkred;
     text-align: center;
     font-family: 'Permanent Marker', cursive;
-    font-size: 2.5em;
+    font-size: 3em;
+}
+
+#counter .counterdown {
+    text-align: center;
+    color: deepskyblue;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2em;
+    margin: -15px 0 0;
+}
+
+#icons {
+    text-align: center;
+}
+
+#icons .fa {
+    color: gray;
+    margin: 5px 15px;
+    position: relative;
+    bottom: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+#icons .github:hover {
+    color: black;
+    bottom: 5px;
+}
+
+#icons .facebook:hover {
+    color: #3b5998;
+    bottom: 5px;
+}
+
+#icons .google:hover {
+    color: #ea4335;
+    bottom: 5px;
+}
+
+#icons .linkedin:hover {
+    color: #0088CC;
+    bottom: 5px;
 }
