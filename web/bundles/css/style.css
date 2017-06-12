@@ -1,9 +1,23 @@
-/*html, body {
+html, body {
     background: url('../img/bg.jpg') center center no-repeat;
     height: 100%;
     background-size: cover;
 }
-*/
+
+@media (max-width:768px) {
+    #intro p {
+        padding-top: 50px !important;
+        font-size: 2em !important;
+    }
+    #counter .counterdown {
+        font-size: 1.4em !important;
+    }
+    #icons .fa {
+        margin: 10px 0 0 !important;
+        font-size: 2em;
+    }
+}
+
 /*
 #logo img {
     padding-top: 20px;
